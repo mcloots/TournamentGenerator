@@ -167,7 +167,6 @@ namespace TournamentGenerator
                 pouleCounter++;
 
             }
-
             ExcelHelper.CreateExcel(poulesDictionary);
         }
 
