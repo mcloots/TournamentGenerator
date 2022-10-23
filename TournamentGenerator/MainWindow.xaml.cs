@@ -154,7 +154,7 @@ namespace TournamentGenerator
             foreach (var participant in participants)
             {
                 //delay
-                await Task.Delay(2000);
+                //await Task.Delay(2000);
 
                 //move over the poules
                 if (pouleCounter == numberOfPoules)
@@ -167,6 +167,8 @@ namespace TournamentGenerator
                 pouleCounter++;
 
             }
+
+            ExcelHelper.CreateExcel(poulesDictionary);
         }
 
         private void Reset()

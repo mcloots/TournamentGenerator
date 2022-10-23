@@ -1,35 +1,35 @@
-﻿A;A
-B;B
-C;C
-D;D
-E;E
-F;F
-G;G
-H;H
-I;I
-J;J
-K;K
-L;L
-M;M
-N;N
-O;O
-P;P
-Q;Q
-R;R
-S;S
-T;T
-U;U
-V;V
-W;W
-X;X
-Y;Y
-Z;Z
-AA;AA
-BB;BB
-CC;CC
-DD;DD
-EE;EE
-FF;FF
-GG;GG
-HH;HH
-II;II
+﻿Michaël;Cloots
+Liesbeth;Kenens
+Ine;Voordeckers
+Sarah;Moeremans
+Peter;Alen
+Jordi;De Roeck
+Tom;Soffers
+Kristof;Nuyts
+Toon;Lenaerts
+Lieve;Gios
+Tiemen;Thijssen 
+Jitse;Beyens
+Tom;Bosch
+Davy;Cavens
+Koen;Depovere
+Ward;Kerkhofs
+Bram;Verbruggen
+Fatiha;Baki
+Vince;Brusselaers
+Bram;Heyns
+Tim;Bonné
+Moonen;Michiel
+Bert;Van Elsen
+Inge;Van Genechten
+Christine;Smeets
+Stef;Van Wolputte
+Hans;Bartholomeus
+Anke;Coomans
+Erwin;Van de Put
+Joren;Synaeve
+Sam;Heylen
+Jan;Bleyen
+Koen;Vangeel
+Robin;De Keyser
+Tinne;Van Echelpoel
