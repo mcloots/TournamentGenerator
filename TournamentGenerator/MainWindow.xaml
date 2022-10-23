@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TournamentGenerator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Tournament generator" Height="800" Width="1600" WindowState="Maximized" WindowStyle="SingleBorderWindow">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="257*"></ColumnDefinition>
+            <ColumnDefinition Width="227*"></ColumnDefinition>
+            <ColumnDefinition Width="716*"></ColumnDefinition>
+            <ColumnDefinition Width="400*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Content="Participants:" Grid.Column="0" VerticalAlignment="Center" Height="26"/>
+        <ListBox x:Name="lbParticipants" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
+        <Label Content="Configuration:" Grid.Column="1" VerticalAlignment="Center" Height="26"/>
+        <Label Content="Poules:" Grid.Column="2" VerticalAlignment="Center" Height="26"/>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Number of poules:"></Label>
+                <TextBox x:Name="tbPoulesAmount" Width="100"></TextBox>
+            </StackPanel>
+            <Button x:Name="btnGeneratePoules" Content="Generate poules" Width="150" HorizontalAlignment="Left" Margin="10" Click="btnGeneratePoules_Click"></Button>
+        </StackPanel>
+        <StackPanel x:Name="stackPoules1" Orientation="Horizontal" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"></StackPanel>
+        <StackPanel x:Name="stackPoules2" Orientation="Horizontal" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"></StackPanel>
     </Grid>
 </Window>
