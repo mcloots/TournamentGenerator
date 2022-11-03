@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TournamentGenerator.Models;
 
 namespace TournamentGenerator.Helper
 {
@@ -21,6 +22,19 @@ namespace TournamentGenerator.Helper
                 list[k] = list[n];
                 list[n] = value;
             }
+        }
+    }
+
+    public static class SeedHelper
+    {
+        public static List<Participant> SeedOrderList(List<Participant> pList)
+        {
+            //Get seeded players and order them
+            var seededPlayers = pList.Where(p => p.Seed > 0).OrderBy(p => p.Seed).ToList();
+            //Remove seeded players from original list
+            pList.RemoveAll(p => p.Seed > 0);
+            pList.InsertRange(0, seededPlayers);
+            return pList;
         }
     }
 }

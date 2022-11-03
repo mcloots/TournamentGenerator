@@ -1,11 +1,11 @@
-﻿Michaël;Cloots
+﻿Michaël;Cloots;4
 Liesbeth;Kenens
 Ine;Voordeckers
 Sarah;Moeremans
-Peter;Alen
+Peter;Alen;1
 Jordi;De Roeck
-Tom;Soffers
-Kristof;Nuyts
+Tom;Soffers;2
+Kristof;Nuyts;3
 Toon;Lenaerts
 Lieve;Gios
 Tiemen;Thijssen 
@@ -19,7 +19,7 @@ Fatiha;Baki
 Vince;Brusselaers
 Bram;Heyns
 Tim;Bonné
-Moonen;Michiel
+Michiel;Moonen
 Bert;Van Elsen
 Inge;Van Genechten
 Christine;Smeets
@@ -33,3 +33,8 @@ Jan;Bleyen
 Koen;Vangeel
 Robin;De Keyser
 Tinne;Van Echelpoel
+Luc;Moonen
+Susy;Branckaerts
+Stephanie;Van Baelen
+Eric;Pauwels
+Jan;Steurs

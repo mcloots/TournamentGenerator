@@ -149,7 +149,10 @@ namespace TournamentGenerator
 
         private async void GeneratePoules(int numberOfPoules)
         {
+            //Shuffle all
             participants.Shuffle();
+            //Order by seed
+            participants = SeedHelper.SeedOrderList(participants);
             int pouleCounter = 0;
             foreach (var participant in participants)
             {

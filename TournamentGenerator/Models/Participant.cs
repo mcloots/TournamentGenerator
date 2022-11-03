@@ -10,10 +10,11 @@ namespace TournamentGenerator.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int Seed { get; set; }
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName}";
+            return $"{FirstName} {LastName} {(Seed > 0 ? $"({Seed})" : "")}";
         }
     }
 }

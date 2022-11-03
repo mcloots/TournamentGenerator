@@ -23,6 +23,10 @@ namespace TournamentGenerator.Helper
                     {
                         data = reader.ReadLine().Split(';').ToList();
                             participant = new Participant() { FirstName = data[0], LastName = data[1] };
+                        if (data.Count > 2)
+                        {
+                            participant.Seed = int.Parse(data[2]);
+                        }
                             if (!participants.Contains(participant))
                             {
                             participants.Add(participant);
