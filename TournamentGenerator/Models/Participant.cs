@@ -15,6 +15,11 @@ namespace TournamentGenerator.Models
         public override string ToString()
         {
             return $"{FirstName} {LastName} {(Seed > 0 ? $"({Seed})" : "")}";
+        } 
+        
+        public string ToStringExcel()
+        {
+            return $"{FirstName} {LastName}";
         }
     }
 }

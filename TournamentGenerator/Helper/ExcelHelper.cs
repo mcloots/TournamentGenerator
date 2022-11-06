@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using TournamentGenerator.Models;
 
 namespace TournamentGenerator.Helper
 {
@@ -21,17 +22,19 @@ namespace TournamentGenerator.Helper
             foreach (var poule in poules)
             {
                 players = new List<string>();
-                WorkSheet ws = wb.CreateWorkSheet(poule.Key);
+                WorkSheet ws = wb.CreateWorkSheet($"Poule {poule.Key.ToUpper()}");
                 ws[$"A1"].Value = "Player";
                 int counter = 2;
-                foreach (var participant in poule.Value.Items)
+                foreach (Participant participant in poule.Value.Items)
                 {
-                    players.Add(participant.ToString());
-                    ws[$"A{counter}"].Value = participant.ToString();
+                    players.Add(participant.ToStringExcel());
+                    ws[$"A{counter}"].Value = participant.ToStringExcel();
                     counter++;
                 }
 
-                MatchesGenerator.GenerateMatches(players, ws);
+                List<MatchExcel> matches = MatchesGenerator.GenerateMatches(players, ws);
+
+                RankingGenerator.GenerateRanking(players, matches, ws);
                 
             }
 

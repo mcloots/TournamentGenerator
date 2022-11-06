@@ -59,9 +59,10 @@ namespace TournamentGenerator.Helper
         //    var ii = 1;
         //}
 
-        public static void GenerateMatches(List<string> players, WorkSheet ws)
+        public static List<MatchExcel> GenerateMatches(List<string> players, WorkSheet ws)
         {
             var matches = new List<Match>();
+            var matchesExcel = new List<MatchExcel>();
 
             //first player
             for (int j = 0; j < players.Count; j++)
@@ -83,15 +84,33 @@ namespace TournamentGenerator.Helper
             int rowCounter = 2;
             ws[$"C1"].Value = "Player 1";
             ws[$"D1"].Value = "Player 2";
+            ws[$"E1"].Value = "Gew legs P1";
+            ws[$"F1"].Value = "Gew legs P2";
+            ws[$"G1"].Value = "Punten over P1";
+            ws[$"H1"].Value = "Punten over P2";
 
             // Write this to excel so I can go to bed
             foreach (var m in matches)
             {
+                var matchExcel = new MatchExcel()
+                {
+                    Participant1 = m.Player1,
+                    Cell1Column = "C",
+                    Cell1Row = rowCounter,
+                    Participant2 = m.Player2,
+                    Cell2Column = "D",
+                    Cell2Row = rowCounter,
+                };
+
+                matchesExcel.Add(matchExcel);
+
                 ws[$"C{rowCounter}"].Value = m.Player1;
                 ws[$"D{rowCounter}"].Value = m.Player2;
 
                 rowCounter++;
             }
+
+            return matchesExcel;
         }
     }
 }
