@@ -41,7 +41,11 @@ namespace TournamentGenerator
 
         private void SetComponents()
         {
-            lbParticipants.ItemsSource = participants;
+            foreach (var p in participants)
+            {
+                lbParticipants.Items.Add(new ListBoxItem { Content = p.ToString() });
+            }
+            //lbParticipants.ItemsSource = participants;
         }
 
         private void btnGeneratePoules_Click(object sender, RoutedEventArgs e)
@@ -157,7 +161,17 @@ namespace TournamentGenerator
             foreach (var participant in participants)
             {
                 //delay
-                //await Task.Delay(2000);
+                await Task.Delay(2000);
+
+                //color user in listbox
+                foreach (ListBoxItem item in lbParticipants.Items)
+                {
+                    if(item.Content.ToString() == participant.ToString())
+                    {
+                        item.Background = Brushes.Green;
+                        item.Foreground = Brushes.White;
+                    }
+                }
 
                 //move over the poules
                 if (pouleCounter == numberOfPoules)
