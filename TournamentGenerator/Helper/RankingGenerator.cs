@@ -58,6 +58,7 @@ namespace TournamentGenerator.Helper
 
                 rowCounter++;
             }
+            
         }
     }
 }
