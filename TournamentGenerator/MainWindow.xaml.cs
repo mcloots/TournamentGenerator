@@ -161,7 +161,7 @@ namespace TournamentGenerator
             foreach (var participant in participants)
             {
                 //delay
-                await Task.Delay(2000);
+                //await Task.Delay(2500);
 
                 //color user in listbox
                 foreach (ListBoxItem item in lbParticipants.Items)

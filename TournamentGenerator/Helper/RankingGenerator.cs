@@ -14,8 +14,9 @@ namespace TournamentGenerator.Helper
         {
             ws[$"J1"].Value = "Rangschikking";
             ws[$"K1"].Value = "Player";
-            ws[$"L1"].Value = "Gew legs";
-            ws[$"M1"].Value = "Punten over";
+            ws[$"L1"].Value = "# matchen";
+            ws[$"M1"].Value = "Gew legs";
+            ws[$"N1"].Value = "Punten over";
 
             int rowCounter = 2;
 
@@ -33,20 +34,27 @@ namespace TournamentGenerator.Helper
                     //get cell with won legs (= column + 2)
                     if (me.Participant1 == p)
                     {
-                        cellsLegs.Add($"{ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell1Column).Key + 2)).Value}{me.Cell1Row}");
-                        cellsPoints.Add($"{ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell1Column).Key + 4)).Value}{me.Cell1Row}");
+                        cellsLegs.Add($"${ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell1Column).Key + 2)).Value}${me.Cell1Row}");
+                        cellsPoints.Add($"${ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell1Column).Key + 4)).Value}${me.Cell1Row}");
                     }
                     else if (me.Participant2 == p)
                     {
-                        cellsLegs.Add($"{ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell2Column).Key + 2)).Value}{me.Cell2Row}");
-                        cellsPoints.Add($"{ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell2Column).Key + 4)).Value}{me.Cell2Row}");
+                        cellsLegs.Add($"${ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell2Column).Key + 2)).Value}${me.Cell2Row}");
+                        cellsPoints.Add($"${ColumnMap.Columns.First(c => c.Key == (ColumnMap.Columns.First(c => c.Value == me.Cell2Column).Key + 4)).Value}${me.Cell2Row}");
                     }
 
                 }
                 formulaLegs += string.Join('+', cellsLegs);
                 formulaLegs += ")";
 
-                ws[$"L{rowCounter}"].Formula = formulaLegs;
+                ws[$"M{rowCounter}"].Formula = formulaLegs;
+
+
+                // # matches formula
+                string formulaPlayedMatches = "COUNTA(";
+                formulaPlayedMatches += string.Join(',', cellsLegs);
+                formulaPlayedMatches += ")";
+                ws[$"L{rowCounter}"].Formula = formulaPlayedMatches;
 
                 //Calculate the formula for summing up all the leftover points
                 string formulaPoints = "SUM(";
@@ -54,7 +62,7 @@ namespace TournamentGenerator.Helper
                 formulaPoints += string.Join('+', cellsPoints);
                 formulaPoints += ")";
 
-                ws[$"M{rowCounter}"].Formula = formulaPoints;
+                ws[$"N{rowCounter}"].Formula = formulaPoints;
 
                 rowCounter++;
             }
